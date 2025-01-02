@@ -1,12 +1,13 @@
 # Compilation
 CC					=	c++
-CFLAGS				=	-Wall -Wextra -Werror -std=c++98
+CFLAGS				=	-Wall -Wextra -Werror -std=c++98 -Wno-implicit-fallthrough
 
 # Names
-NAME				=	sed
+NAME				=	harlFilter
 
 # Sources & Includes
-SRCS				= 	main.cpp
+SRCS				= 	main.cpp \
+						Harl.cpp
 OBJ_FOLDER			=	objs
 
 # Objects

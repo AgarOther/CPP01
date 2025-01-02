@@ -3,10 +3,11 @@ CC					=	c++
 CFLAGS				=	-Wall -Wextra -Werror -std=c++98
 
 # Names
-NAME				=	sed
+NAME				=	harl
 
 # Sources & Includes
-SRCS				= 	main.cpp
+SRCS				= 	main.cpp \
+						Harl.cpp
 OBJ_FOLDER			=	objs
 
 # Objects
