@@ -6,12 +6,14 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 14:23:51 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/12/30 14:35:40 by scraeyme         ###   ########.fr       */
+/*   Updated: 2025/01/02 17:30:34 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include "colors.hpp"
 
 bool args_valid(int ac)
@@ -27,9 +29,41 @@ bool args_valid(int ac)
 	return false;
 }
 
+std::string	replace_str(std::string str, std::string word, std::string replacement)
+{
+	//std::string::npos
+	//std::string::find()
+	//Substr -> index + replacement + substr leftover
+}
+
 int	main(int ac, char **av)
 {
+	std::string		filename;
+	std::string		word;
+	std::string		replacement;
+	std::string		buffer;
+	std::ifstream	file;
+	std::ofstream	new_file;
+
 	if (!args_valid(ac))
 		return (1);
-	(void)av;
+	filename = av[1];
+	word = av[2];
+	replacement = av[3];
+
+	file.open(filename.c_str(), std::ios::in);
+	new_file.open((filename + ".replace").c_str());
+	if (file.fail())
+	{
+		std::cout << "Invalid file." << std::endl;
+		return (1);
+	}
+
+	while (std::getline(file, buffer))
+	{
+		buffer = replace_str(buffer, word, replacement);
+		new_file << buffer << std::endl;
+	}
+	file.close();
+	new_file.close();
 }
