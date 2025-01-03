@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 23:36:32 by scraeyme          #+#    #+#             */
-/*   Updated: 2025/01/03 00:28:25 by scraeyme         ###   ########.fr       */
+/*   Updated: 2025/01/03 13:28:33 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,11 @@ void	Harl::complain(std::string level)
 {
 	std::map<std::string, void(Harl::*)()>::iterator iterator;
 
-	for (int i = 0; i < 4; i++)
+	iterator = this->functions.find(level);
+	if (iterator != this->functions.end())
 	{
-		iterator = this->functions.find(level);
-		if (iterator != this->functions.end())
-		{
-			(this->*iterator->second)();
-			return ;
-		}
+		(this->*iterator->second)();
+		return ;
 	}
 	std::cout << BOLD_RED << "[NOT_FOUND] What is this?? Why is my complaint not getting taken care of? ";
 	std::cout << "That's it I'll call my dad. Do you know who he is?" << RESET << std::endl;
