@@ -14,10 +14,10 @@
 
 Harl::Harl(void)
 {
-	Harl::functions.insert(std::pair<std::string, void(Harl::*)()>("DEBUG", &Harl::debug));
-	Harl::functions.insert(std::pair<std::string, void(Harl::*)()>("INFO", &Harl::info));
-	Harl::functions.insert(std::pair<std::string, void(Harl::*)()>("WARNING", &Harl::warning));
-	Harl::functions.insert(std::pair<std::string, void(Harl::*)()>("ERROR", &Harl::error));
+	Harl::functions.insert(std::make_pair("DEBUG", &Harl::debug));
+	Harl::functions.insert(std::make_pair("INFO", &Harl::info));
+	Harl::functions.insert(std::make_pair("WARNING", &Harl::warning));
+	Harl::functions.insert(std::make_pair("ERROR", &Harl::error));
 	std::cout << GREEN << "Harl was born and is ready to complain!" << RESET << std::endl;
 }
 
@@ -48,10 +48,9 @@ void	Harl::error(void)
 {
 	std::cout << RED << "[ERROR] This is unacceptable! I want to speak to the manager now." << RESET << std::endl;
 }
-
 void	Harl::complain(std::string level)
 {
-	std::map<std::string, void(Harl::*)()>::iterator iterator;
+	std::map<std::string, void(Harl::*)()>::const_iterator iterator;
 
 	iterator = this->functions.find(level);
 	if (iterator != this->functions.end())
