@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 23:36:32 by scraeyme          #+#    #+#             */
-/*   Updated: 2025/01/03 13:28:33 by scraeyme         ###   ########.fr       */
+/*   Updated: 2025/01/22 18:47:09 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 Harl::Harl(void)
 {
-	Harl::functions.insert(std::pair<std::string, void(Harl::*)()>("DEBUG", &Harl::debug));
-	Harl::functions.insert(std::pair<std::string, void(Harl::*)()>("INFO", &Harl::info));
-	Harl::functions.insert(std::pair<std::string, void(Harl::*)()>("WARNING", &Harl::warning));
-	Harl::functions.insert(std::pair<std::string, void(Harl::*)()>("ERROR", &Harl::error));
+	
 	std::cout << GREEN << "Harl was born and is ready to complain!" << RESET << std::endl;
 }
 

@@ -10,7 +10,7 @@ SRCS				= 	main.cpp
 OBJ_FOLDER			=	objs
 
 # Objects
-OBJS				=	$(patsubst %.c, $(OBJ_FOLDER)/%.o, $(SRCS))
+OBJS				=	$(patsubst %.cpp, $(OBJ_FOLDER)/%.o, $(SRCS))
 
 # Custom Makefile Flags
 MAKEFLAGS			+=	--no-print-directory --silent
