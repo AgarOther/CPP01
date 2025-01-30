@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 23:36:32 by scraeyme          #+#    #+#             */
-/*   Updated: 2025/01/22 18:47:09 by scraeyme         ###   ########.fr       */
+/*   Updated: 2025/01/30 14:24:51 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 Harl::Harl(void)
 {
-	
 	std::cout << GREEN << "Harl was born and is ready to complain!" << RESET << std::endl;
 }
 
@@ -47,14 +46,12 @@ void	Harl::error(void)
 }
 
 void	Harl::complain(std::string level)
-{
-	std::map<std::string, void(Harl::*)()>::iterator iterator;
-
-	iterator = this->functions.find(level);
-	if (iterator != this->functions.end())
+{	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	void(Harl::*functions[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	for (int i = 0; i < 4; i++)
 	{
-		(this->*iterator->second)();
-		return ;
+		if (level == levels[i])
+			return (this->*functions[i])();
 	}
 	std::cout << BOLD_RED << "[NOT_FOUND] What is this?? Why is my complaint not getting taken care of? ";
 	std::cout << "That's it I'll call my dad. Do you know who he is?" << RESET << std::endl;
