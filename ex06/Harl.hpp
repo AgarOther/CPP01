@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 23:36:37 by scraeyme          #+#    #+#             */
-/*   Updated: 2025/01/03 00:23:10 by scraeyme         ###   ########.fr       */
+/*   Updated: 2025/01/30 14:30:22 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define HARL_HPP
 # include <string>
 # include <iostream>
-# include <map>
 # define MAGENTA "\033[35;49m"
 # define CYAN "\033[36;49m"
 # define BLUE "\033[34;49m"
@@ -30,7 +29,6 @@ class Harl
 		Harl(void);
 		~Harl(void);
 		void	complain(std::string level);
-		std::map<std::string, void (Harl::*)()>	functions;
 	private:
 		void	debug(void);
 		void	info(void);
