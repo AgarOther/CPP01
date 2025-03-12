@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 16:07:28 by scraeyme          #+#    #+#             */
-/*   Updated: 2024/12/20 23:43:14 by scraeyme         ###   ########.fr       */
+/*   Updated: 2025/03/12 15:32:40 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ class Zombie
 };
 
 Zombie* newZombie(std::string name);
+void	randomChump(std::string name);
 
 #endif
