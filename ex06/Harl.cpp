@@ -6,7 +6,7 @@
 /*   By: scraeyme <scraeyme@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 23:36:32 by scraeyme          #+#    #+#             */
-/*   Updated: 2025/01/03 00:37:15 by scraeyme         ###   ########.fr       */
+/*   Updated: 2025/03/12 13:05:31 by scraeyme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,13 @@ void	Harl::error(void)
 
 int	get_level(std::string level)
 {
-	if (level == "DEBUG")
-		return (0);
-	else if (level == "INFO")
-		return (1);
-	else if (level == "WARNING")
-		return (2);
-	else if (level == "ERROR")
-		return (3);
-	else
-		return (4);
+	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	for (int i = 0; i < 4; i++)
+	{
+		if (level == levels[i])
+			return (i);
+	}
+	return (-1);
 }
 
 void	Harl::complain(std::string level)
